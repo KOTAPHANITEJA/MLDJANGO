@@ -1,0 +1,60 @@
+<!-- sentiment_app/templates/sentiment_app/predict.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sentiment Analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+        }
+        textarea {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 20px;
+            font-weight: bold;
+        }
+        .positive {
+            color: green;
+        }
+        .negative {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Sentiment Analysis</h2>
+        <form method="post">
+            {% csrf_token %}
+            <textarea name="input_text" rows="6" placeholder="Enter your review here...">{{ user_input }}</textarea><br>
+            <button type="submit">Analyze Sentiment</button>
+        </form>
+
+        {% if prediction %}
+            <div class="result">
+                Sentiment: 
+                {% if prediction == "Positive" %}
+                    <span class="positive">{{ prediction }}</span>
+                {% else %}
+                    <span class="negative">{{ prediction }}</span>
+                {% endif %}
+            </div>
+        {% endif %}
+    </div>
+</body>
+</html>
