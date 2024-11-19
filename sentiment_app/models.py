@@ -7,6 +7,8 @@ import joblib
 data = [
     "happy",
     "Good",
+    "excellent",
+    "Awsome",
     "Outstanding",  # Excellent and remarkable
     "Brilliant",  # Exceptionally clever or talented
     "Remarkable",  # Worthy of attention
@@ -35,7 +37,7 @@ data = [
     "Unsatisfactory",  # Not good enough to meet expectations
     
 ]
-labels = [1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]  # 1=Positive, 0=Negative
+labels = [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]  # 1=Positive, 0=Negative
 
 # Text vectorization
 vectorizer = CountVectorizer()
